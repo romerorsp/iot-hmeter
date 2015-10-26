@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.com.pontoclass</groupId>
+		<artifactId>iot</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>br.com.pontoclass.iot</groupId>
+	<artifactId>hmeter</artifactId>
+	<name>Internet of Things - Height Meter Electronic Project</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<systemPath>${basedir}/lib/JArduino/org.sintef.jarduino.core-0.1.7.jar</systemPath>
+			<scope>system</scope>
+			<groupId>org.sintef.jarduino</groupId>
+			<artifactId>core</artifactId>
+			<version>0.1.7-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<systemPath>${basedir}/lib/JArduino/org.sintef.jarduino.serial-0.1.7.jar</systemPath>
+			<scope>system</scope>
+			<groupId>org.sintef.jarduino</groupId>
+			<artifactId>serial</artifactId>
+			<version>0.1.7-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<systemPath>${basedir}/lib/JArduino/org.kevoree.extra.osgi.rxtx-2.2.0.jar</systemPath>
+			<scope>system</scope>
+			<groupId>org.kevoree.extra.osgi</groupId>
+			<artifactId>rxtx</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-client-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.tyrus</groupId>
+			<artifactId>tyrus-container-grizzly-client</artifactId>
+			<version>1.8.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>hmeter</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<manifestEntries>
+										<Main-Class>br.com.pontoclass.iot.hmeter.main.Bootstrap</Main-Class>
+										<Build-Number>${project.version}</Build-Number>
+									</manifestEntries>
+								</transformer>
+							</transformers>
+							<minimizeJar>true</minimizeJar>
+							<artifactSet>
+								<includes>
+									<include>br.com.pontoclass.iot:hmeter</include>
+								</includes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

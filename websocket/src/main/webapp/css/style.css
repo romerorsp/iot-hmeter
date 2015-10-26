@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+
+.screen {
+    margin: 15px;
+}
+
+.screen .image {
+    width: 20%;
+    float:left;
+    height: 250px;
+    overflow:hidden;
+    text-align: center;
+}
+
+.screen .image img {
+    height: 250px;
+}
+
+.screen .right {
+    float: right;
+    width: 80%;
+    height: 250px;
+    overflow:hidden;
+}
+
+.screen .right .text {
+	border: solid 1px;
+	margin-top: 20px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    color: gray;
+}
+
+.screen .right .message {
+	border: solid 1px;
+	margin-bottom: 20px;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 10px;
+    color: green;
+}
+
+.screen .clear {
+	clear: both;	
+}
+
+.screen p a {
+	cursor: pointer;
+	color: #22aae4;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    font-family: "DIN Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
+.screen p a:focus, .screen p a:hover {
+    color: #147aa5;
+    text-decoration: underline;
+}
+.screen p {
+	float: right;
+}
