@@ -8,7 +8,7 @@ This project was created to proof the concept of the IoT paper written to the Br
 
 ### Tech
 
-This project makes youse of:
+This project makes use of:
 
 * [AngularJS] - The presentation layer makes high use of AngularJS!
 * [WebSocket] - The Java WebSocket Specification was also used in order to connect the device to the web clients.
